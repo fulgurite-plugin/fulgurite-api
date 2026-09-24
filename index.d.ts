@@ -97,7 +97,8 @@ export interface Commands {
    *  `note.new` `note.save` `note.close` `note.goto` (the [[link]] under the cursor) `note.open` (arg: note id)
    *  `block.open` (edits the code block at the arg offset, or at the cursor, in its page: `Editor.registerCodeBlock`)
    *  `workspace.new` `search.all` `search.titles` `find.inNote` `find.next` `find.previous` `edit.undo` `edit.redo`
-   *  `palette.open` `view.toggleSidebar` `view.toggleNoteList` `sync.now`. */
+   *  `edit.scroll` (arg: `<offset> <top|center|bottom>`, puts the line holding the offset there; the cursor stays on
+   *  screen) `palette.open` `view.toggleSidebar` `view.toggleNoteList` `sync.now`. */
   execute(id: string, arg?: string): void
 }
 
@@ -209,6 +210,9 @@ export interface EditorView {
   /** [start, end) while the shell shows a selection, else null. */
   readonly selection: readonly [number, number] | null
   readonly clipboard: string
+  /** [start, end) of the text on screen, for keys that scroll (Vim's CTRL-D, H, zz; scroll with `edit.scroll`). The
+   *  whole text when the shell doesn't say. */
+  readonly visible: readonly [number, number]
   moveCursor(offset: number): void
   select(start: number, end: number): void
   replace(start: number, end: number, text: string): void
