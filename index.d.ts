@@ -95,6 +95,7 @@ export interface Commands {
   add(command: Command): Disposable
   /** Runs a plugin command (`<plugin id>:<id>`) or one of the app's, which the shell carries out:
    *  `note.new` `note.save` `note.close` `note.goto` (the [[link]] under the cursor) `note.open` (arg: note id)
+   *  `block.open` (edits the code block at the arg offset, or at the cursor, in its page: `Editor.registerCodeBlock`)
    *  `workspace.new` `search.all` `search.titles` `find.inNote` `find.next` `find.previous` `edit.undo` `edit.redo`
    *  `palette.open` `view.toggleSidebar` `view.toggleNoteList` `sync.now`. */
   execute(id: string, arg?: string): void
@@ -179,6 +180,26 @@ export interface PluginData {
 
 export interface Editor {
   registerExtension(ext: EditorExtension): Disposable
+  /** Obsidian's `registerMarkdownCodeBlockProcessor`, drawn by a web page: a fenced block tagged `language`
+   *  (```` ```excalidraw ````) shows as `page`, a whole HTML document, in place of its text while the cursor is
+   *  elsewhere (Live Preview); clicking it opens the page full size to edit the block. The page runs in the app's web
+   *  view, not here, and finds the block as `window.fulgurite` (`CodeBlockHost`). One page per language; the last
+   *  registered wins. Open a block from a command with `commands.execute("block.open", String(offset))`. */
+  registerCodeBlock(language: string, page: string): Disposable
+}
+
+/** `window.fulgurite` in a code block's page (`Editor.registerCodeBlock`). */
+export interface CodeBlockHost {
+  /** The text between the block's fences. */
+  source: string
+  /** "view": drawn in the note at the note's width, as tall as `resize` says, clicks open it; "edit": full size. */
+  mode: "view" | "edit"
+  /** The app's appearance. */
+  dark: boolean
+  /** view: the height the page needs, in CSS pixels. Call it again when that changes (the note got narrower). */
+  resize(height: number): void
+  /** edit: the block's new text. The app writes the last one into the note when the page closes. */
+  save(source: string): void
 }
 
 /** The buffer as the shell shows it. Offsets are UTF-16 code units, i.e. plain JS string indices. Mutations apply immediately. */

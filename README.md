@@ -4,13 +4,15 @@ Type definitions for Fulgurite plugins ([`index.d.ts`](index.d.ts)), and how a p
 
 Plugins are TypeScript that runs inside the app's core (QuickJS). They never draw UI themselves: they register
 commands (the ⌘P palette), listen to events, extend the editor (keys, the status line, syntax styles), read and write
-notes, and declare options that the app draws in Settings. The same bundle runs on the Mac, iPhone and iPad. The API is
+notes, and declare options that the app draws in Settings. The one exception is a code block's page
+(`registerCodeBlock`): an HTML document the app shows in a web view in place of a fenced block, and full size to edit it,
+the way the Excalidraw plugin draws with Excalidraw itself. The same bundle runs on the Mac, iPhone and iPad. The API is
 shaped after Obsidian's; packaging and publishing follow Inkdrop's.
 
 The official plugins in this organization are complete examples:
 [vim](https://github.com/Fulgurite-Plugin/fulgurite-vim) · [emoji](https://github.com/Fulgurite-Plugin/fulgurite-emoji) ·
 [math](https://github.com/Fulgurite-Plugin/fulgurite-math) · [templates](https://github.com/Fulgurite-Plugin/fulgurite-templates) ·
-[tables](https://github.com/Fulgurite-Plugin/fulgurite-tables)
+[tables](https://github.com/Fulgurite-Plugin/fulgurite-tables) · [excalidraw](https://github.com/Fulgurite-Plugin/fulgurite-excalidraw)
 
 ## A plugin is a repository
 
