@@ -8,9 +8,9 @@ notes, and declare options that the app draws in Settings. The same bundle runs 
 shaped after Obsidian's; packaging and publishing follow Inkdrop's.
 
 The official plugins in this organization are complete examples:
-[vim](https://github.com/Fulgurite-Plugin/vim) · [emoji](https://github.com/Fulgurite-Plugin/emoji) ·
-[math](https://github.com/Fulgurite-Plugin/math) · [templates](https://github.com/Fulgurite-Plugin/templates) ·
-[tables](https://github.com/Fulgurite-Plugin/tables)
+[vim](https://github.com/Fulgurite-Plugin/fulgurite-vim) · [emoji](https://github.com/Fulgurite-Plugin/fulgurite-emoji) ·
+[math](https://github.com/Fulgurite-Plugin/fulgurite-math) · [templates](https://github.com/Fulgurite-Plugin/fulgurite-templates) ·
+[tables](https://github.com/Fulgurite-Plugin/fulgurite-tables)
 
 ## A plugin is a repository
 
@@ -41,7 +41,7 @@ main.js         the built bundle, committed: it is what the app downloads
   },
   "devDependencies": {
     "esbuild": "^0.25.0",
-    "fulgurite": "github:Fulgurite-Plugin/api#v0.1.0",
+    "fulgurite": "github:Fulgurite-Plugin/fulgurite-api#v0.1.0",
     "typescript": "^5.6.0"
   }
 }
@@ -100,5 +100,5 @@ It type-checks, bumps the version, builds main.js, commits, tags `v<version>` an
 that the default branch's package.json names, from that tag, and offers it as an update to people with an older one.
 
 To list a new plugin in Settings › Plugins, add its repository to
-[registry](https://github.com/Fulgurite-Plugin/registry)'s `plugins.json` in a pull request. Plugins in this
+[registry](https://github.com/Fulgurite-Plugin/fulgurite-registry)'s `plugins.json` in a pull request. Plugins in this
 organization are marked Official.
