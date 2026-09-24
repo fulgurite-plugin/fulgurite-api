@@ -1,6 +1,6 @@
 {
   "name": "fulgurite",
-  "version": "0.3.0",
+  "version": "0.1.2",
   "description": "Type definitions for Fulgurite plugins",
   "repository": "https://github.com/Fulgurite-Plugin/fulgurite-api",
   "license": "MIT",
