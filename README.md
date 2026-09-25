@@ -1,6 +1,6 @@
-# Fulgurite plugin API
+# fulgurite plugin API
 
-Type definitions for Fulgurite plugins ([`index.d.ts`](index.d.ts)), and how a plugin is made, packaged and published.
+Type definitions for fulgurite plugins ([`index.d.ts`](index.d.ts)), and how a plugin is made, packaged and published.
 
 Plugins are TypeScript that runs inside the app's core (QuickJS). They never draw UI themselves: they register
 commands (the ⌘P palette), listen to events, extend the editor (keys, the status line, syntax styles), read and write
@@ -10,9 +10,9 @@ the way the Excalidraw plugin draws with Excalidraw itself. The same bundle runs
 shaped after Obsidian's; packaging and publishing follow Inkdrop's.
 
 The official plugins in this organization are complete examples:
-[vim](https://github.com/Fulgurite-Plugin/fulgurite-vim) · [emoji](https://github.com/Fulgurite-Plugin/fulgurite-emoji) ·
-[math](https://github.com/Fulgurite-Plugin/fulgurite-math) · [templates](https://github.com/Fulgurite-Plugin/fulgurite-templates) ·
-[tables](https://github.com/Fulgurite-Plugin/fulgurite-tables) · [excalidraw](https://github.com/Fulgurite-Plugin/fulgurite-excalidraw)
+[vim](https://github.com/fulgurite-plugin/fulgurite-vim) · [emoji](https://github.com/fulgurite-plugin/fulgurite-emoji) ·
+[math](https://github.com/fulgurite-plugin/fulgurite-math) · [templates](https://github.com/fulgurite-plugin/fulgurite-templates) ·
+[tables](https://github.com/fulgurite-plugin/fulgurite-tables) · [excalidraw](https://github.com/fulgurite-plugin/fulgurite-excalidraw)
 
 ## A plugin is a repository
 
@@ -43,7 +43,7 @@ main.js         the built bundle, committed: it is what the app downloads
   },
   "devDependencies": {
     "esbuild": "^0.25.0",
-    "fulgurite": "github:Fulgurite-Plugin/fulgurite-api#v0.1.0",
+    "fulgurite": "github:fulgurite-plugin/fulgurite-api#v0.1.0",
     "typescript": "^5.6.0"
   }
 }
@@ -88,7 +88,7 @@ and relaunch the app:
 ln -s "$PWD" ~/.config/fulgurite/plugins/someone.hello
 ```
 
-On iPhone and iPad the plugins folder is Files › Fulgurite › plugins.
+On iPhone and iPad the plugins folder is Files › fulgurite › plugins.
 
 ## Publish
 
@@ -102,5 +102,5 @@ It type-checks, bumps the version, builds main.js, commits, tags `v<version>` an
 that the default branch's package.json names, from that tag, and offers it as an update to people with an older one.
 
 To list a new plugin in Settings › Plugins, add its repository to
-[registry](https://github.com/Fulgurite-Plugin/fulgurite-registry)'s `plugins.json` in a pull request. Plugins in this
+[registry](https://github.com/fulgurite-plugin/fulgurite-registry)'s `plugins.json` in a pull request. Plugins in this
 organization are marked Official.

@@ -1,4 +1,4 @@
-// Fulgurite plugin API. Plugins run inside the Rust core (QuickJS) and never draw platform UI themselves: they
+// fulgurite plugin API. Plugins run inside the Rust core (QuickJS) and never draw platform UI themselves: they
 // register commands, listen to events, extend the editor, read and write notes, and declare options; every shell
 // draws the result (the command palette, a settings pane, notices). The same bundle runs on the Mac, iPhone and iPad
 // today and on every platform the core runs on later. Shaped after Obsidian's plugin API wherever it fits.

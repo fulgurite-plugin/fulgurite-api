@@ -1,8 +1,8 @@
 {
   "name": "fulgurite",
   "version": "0.1.2",
-  "description": "Type definitions for Fulgurite plugins",
-  "repository": "https://github.com/Fulgurite-Plugin/fulgurite-api",
+  "description": "Type definitions for fulgurite plugins",
+  "repository": "https://github.com/fulgurite-plugin/fulgurite-api",
   "license": "MIT",
   "types": "index.d.ts",
   "scripts": {
