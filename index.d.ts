@@ -193,8 +193,11 @@ export interface Editor {
 export interface CodeBlockHost {
   /** The text between the block's fences. */
   source: string
-  /** "view": drawn in the note at the note's width, as tall as `resize` says, clicks open it; "edit": full size. */
-  mode: "view" | "edit"
+  /** "view": drawn in the note at the note's width, as tall as `resize` says, clicks open it; "edit": full size;
+   *  "inline": `source` drawn within a line of text (the app draws a math page's `$x^2$` this way), at 16 px text on a
+   *  clear background, its baseline in the middle of the height `resize` says (the app trims the sides and puts that
+   *  middle on the line's baseline). */
+  mode: "view" | "edit" | "inline"
   /** The app's appearance. */
   dark: boolean
   /** view: the height the page needs, in CSS pixels. Call it again when that changes (the note got narrower). */
